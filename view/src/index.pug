@@ -1,0 +1,37 @@
+extends parts/layout1.pug
+
+block title
+  nav.navbar.navbar-default
+    .container-fluid
+      .navbar-header
+        a.navbar-brand
+          img(src="img/ag2.png" height="130%")
+      .navbar-header
+        a.navbar-brand Алгебра и Геометрия
+      ul.nav.navbar-nav
+        li.active
+          a( href="/" alt="Домой" title="Домой")
+            span.glyphicon.glyphicon-home
+        li.active
+          a(href="/edit" title="Редактировать")
+            span.glyphicon.glyphicon-pencil
+block content
+  .container
+    .col-md-6
+      .jumbotron
+        h2 Добро пожаловать на портал &laquo;<?php echo SITE_NAME ?>&raquo; !
+        p  Здесь изучают общую и линейную алгебру и аналитическую геометрию
+          | в пределах стандартных университетских курсов для математических специальностей.
+          | Для представления материала используется предложенная нами технология
+          | <b> 3D!Book</b>.
+    .col-md-6
+      .jumbotron
+        h2 Технология 3D!Book
+        p Основные идеи:
+          ul  
+            li теоретический материал представлен <b>не</b> в виде плоского изложения в стандартном книжном формате,
+              | а в виде логического дерева понятий, определений и теорем
+            li каждый может сам сделать для себя нужную выборку и получить фрагмент в книжном формате или же
+              | пользоваться информацией в представленном виде
+            li в эту же структуру дерева включены и задачи, причем как теоретического так и практического характера
+

@@ -1,0 +1,19 @@
+doctype html
+html(lang=ru)
+  head
+    title 3D!Book
+    script(src='/js/jquery-3.2.1.min.js')
+    script(src='/js/bootstrap.min.js')
+    link(rel='stylesheet' type='text/css' href='/css/bootstrap.min.css')
+    block ownhead
+  body
+    header
+      block title
+      block menu
+    block left
+    block right
+    block content
+    hr
+    footer
+      | &copy; 2004 &ndash; <?php echo date("Y"),"&nbsp;&nbsp;",AUTHOR,". Все права защищены." ?>
+      
