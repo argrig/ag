@@ -3,6 +3,7 @@
         "talesoft/tale-pug": "*",
         "leafo/lessphp": "^0.5.0",
         "leafo/scssphp": "^0.6.7",
-        "mongodb/mongodb": "^1.1"
+        "mongodb/mongodb": "^1.1",
+        "twbs/bootstrap": "^3.3"
     }
 }
