@@ -1,11 +1,14 @@
 <?php
 class ChunkEditor {
-  function handle($route) {
+  function handle($rt_parts) {
     $db = (new MongoDB\Client)->book;
-    $res = $db->chunk_types->find() ;
+    $opt = array("_id"=>1,"title"=>1) ;
+    $res = $db->chunk_types->find(array(),array()) ;
     foreach($res as $doc)
       foreach($doc as $key=>$value) {
-      echo $key,"=>",var_dump($value),"<br>" ;
+        if ((is_object($value)) && property_exists($value,'title')) {
+          echo $key,"=>",$value->title,"<br>" ;
+        }
     };
   }
 }

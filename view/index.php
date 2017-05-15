@@ -43,7 +43,7 @@
     
     
     
-    <div class="container">
+    <div class="container-fluid">
       <div class="col-md-6">
         <div class="jumbotron">
           <h2>
@@ -83,7 +83,9 @@
     </div>
     <hr>
     <footer>
-      &copy; 2004 &ndash; <?php echo date("Y"),"&nbsp;&nbsp;",AUTHOR,". Все права защищены." ?>
+      <div class="container-fluid">
+        &copy; 2004 &ndash; <?php echo date("Y"),"&nbsp;&nbsp;",AUTHOR,". Все права защищены." ?>
+      </div>
     </footer>
   </body>
 </html>
