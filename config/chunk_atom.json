@@ -1,0 +1,43 @@
+[
+  { "type":"predicate",
+    "title":["Предикат","Высказывание"],
+    "fields":["text","terms","formal","parents","children","friends"]
+  },
+  { "type":"axiom",
+    "title":["Аксиома","Постулат"],
+    "fields":["predicates","structure","type","text","formal","terms",
+      "examples","children","parts"]
+  },
+  { "type":"theor",
+    "title":["Теорема","Утверждение","Предложение","Следствие","Лемма"],
+    "fields":["predicates","structure","text","formal","terms",
+      "parents","children","friends","parts","proofs"]
+  },
+  "def":{
+    "title":"Определение",
+    "fields":["text","formal","predicates","examples","terms","parents","children","friends"]
+  },
+  "text":{
+    "title":"Текст",
+    "types":[{"precom":"Прекоммент"},{"postcom":"Посткоммент"},{"note":"Замечание"},{"intro":"Введение"},{"text":""}],
+    "fields":["text","type","terms","parents","children","friends","terms",""]
+  },
+  "proof":{
+    "title":"Доказательство",
+    "fields":["text","steps","terms","theor"]
+  },
+  "example":{
+    "title":"Пример",
+    "types":["example","counterexample"],
+    "fields":["text","type","terms"]
+  },
+  "problem":{
+    "title":"Задача",
+    "fields":["text","terms","solution"]
+  },
+  "term":{
+    "title":"Понятие",
+    "fields":["text","parents","children","friends"]
+  }
+]
+
