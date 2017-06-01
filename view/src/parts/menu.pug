@@ -1,0 +1,58 @@
+nav.navbar.navbar-default
+  .container-fluid
+    .navbar-header
+      a.navbar-brand
+        img(src="img/ag2.png" height="160%")
+      a.navbar-brand Алгебра и Геометрия
+    ul.nav.navbar-nav
+      li.active
+        a( href="/" title="Начало")
+          span.glyphicon.glyphicon-home
+      li
+        a(href="/edit" title="Редактирование")
+          span.glyphicon.glyphicon-pencil
+      li
+        a(href="/view" title="Изучение")
+          span.glyphicon.glyphicon-sunglasses
+      li
+        a(href="/solve" title="Задачи")
+          span.glyphicon.glyphicon-education
+      li
+        a(href="/test" title="Тесты")
+          span.glyphicon.glyphicon-saved
+      li
+        a(href="/stats" title="Статистика")
+          span.glyphicon.glyphicon-stats
+    ul.nav.navbar-nav.navbar-right
+      li
+        a(href="#schBox" data-toggle="collapse" title="Поиск")
+          span.glyphicon.glyphicon-search(onclick="javascript:navFormToggle(this,'search')")
+      li
+        .collapse#schBox
+          form.navbar-form(role="search" action="" method="post")
+            .input-group
+              input.form-control(type="search" name="schStr" placeholder="Поиск...")
+                .input-group-btn
+                  button.btn.btn-default(type="submit")
+                    span.glyphicon.glyphicon-search 
+      li
+        a(href="#regBox" data-toggle="modal" title="Регистрация")
+          span.glyphicon.glyphicon-user
+      li
+        -if(!isset($_SESSION['uid'])) {
+        a(href="#loginBox" data-toggle="collapse" title="Вход")
+          span.glyphicon.glyphicon-log-in(onclick="navFormToggle(this,'log-in')")
+        -} else{
+        a(href="#logoutBox" data-toggle="collapse" title="Выход")
+          span.glyphicon.glyphicon-log-out(onclick="navFormToggle(this,'log-out')")
+        -}
+      li
+        .collapse#loginBox
+          form.navbar-form#loginForm
+            .input-group
+              input.form-control(type="text" name="login" placeholder="Логин (email)" required)
+            .input-group
+              input.form-control(type="password" name="passwd" placeholder="Пароль" required)
+                .input-group-btn
+                  button.btn.btn-default(type="submit")
+                    span.glyphicon.glyphicon-log-in

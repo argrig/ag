@@ -1,0 +1,32 @@
+form#regForm
+  .modal.fade#regBox
+    .modal-dialog
+      .modal-content
+        .modal-header 
+          button.close(data-dismiss="modal")
+            span.glyphicon.glyphicon-remove
+          h4.modal-title Регистрация
+        .modal-body#regBody
+          .form-group.row
+            .col-sm-6
+              input.form-control(type="text" placeholder="Имя" title="Имя" name="name" required)
+            .col-sm-6
+              input.form-control(type="text" placeholder="Фамилия" title="Фамилия" name="surname" required)
+          .form-group.row
+            .col-sm-6
+              input.form-control#login(type="text" placeholder="Логин" title="Логин" name="login")
+            .col-sm-6
+              input.form-control#email(type="email" placeholder="Адрес эл. почты" title="Эл. почта" name="email" required)
+          .form-group.row
+            .col-sm-6
+              input.form-control(type="password" placeholder="Пароль (>8 символов)" 
+                  title="Пароль" name="passwd" pattern=".{8,}" required id="passwd")
+            .col-sm-6
+              input.form-control(type="password" placeholder="Пароль повторно" 
+                  title="Пароль повторно" name="passwd2" required onblur="checkPasswd(this)")
+          .form-group.row
+            .col-sm-12
+              input.form-control(type="select" placeholder="ВУЗ" title="ВУЗ" name="univ")
+        .modal-footer#regFooter
+          button.btn.btn-default(type="submit") Отправить
+            span.glyphicon.glyphicon-cloud-upload
