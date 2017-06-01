@@ -4,6 +4,9 @@
 use Tale\Pug\Compiler;
 
 include 'vendor/autoload.php';
+//MY ADDON
+//$path = getcwd() . "/view/src/parts" ;
+//set_include_path(get_include_path() . PATH_SEPARATOR . $path);
 
 list($self, $action, $path, $target) = array_pad($argv, 4, null);
 
@@ -81,8 +84,10 @@ if (is_file($path)) {
 
 
 $compiler = new Compiler(array_replace([
-    'standAlone' => true
+  'standAlone' => true
 ], $options));
+
+$compiler->addPath(getcwd() . '/view/src/parts') ;
 
 echo "Starting compilation...\n";
 

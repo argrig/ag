@@ -1,22 +1,10 @@
-extends parts/layout1.pug
+extends layout1.pug
 
-block title
-  nav.navbar.navbar-default
-    .container-fluid
-      .navbar-header
-        a.navbar-brand
-          img(src="img/ag2.png" height="130%")
-      .navbar-header
-        a.navbar-brand Алгебра и Геометрия
-      ul.nav.navbar-nav
-        li.active
-          a( href="/" alt="Домой" title="Домой")
-            span.glyphicon.glyphicon-home
-        li.active
-          a(href="/edit" title="Редактировать")
-            span.glyphicon.glyphicon-pencil
+block menu
+  include menu.pug
 block content
   .container-fluid
+    include regForm.pug
     .col-md-6
       .jumbotron
         h2 Добро пожаловать на портал &laquo;<?php echo SITE_NAME ?>&raquo; !
