@@ -1,0 +1,3 @@
+insert into prob_types set name='Аффинные гиперквадрики', t_p=2 ;
+insert into problems set type_id=31,name="Поверхности 2-го порядка",gen_prog="kvadrika_gen",chk_prog="kvadrika_chk.pl",ball=12 ;
+update  problems set ans_code=load_file('./kvadrika.htm') where id=19 ; 

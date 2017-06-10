@@ -1,0 +1,25 @@
+src_files = $(wildcard my*.cpp)
+hdr_files = $(wildcard my*.h)
+obj_files = $(patsubst %.cpp, %.o, $(src_files))
+
+CC_OPTIONS = -O3 -pipe
+
+all: libmy.a 
+
+libmy.a: $(obj_files)
+	ar rcv $@ $^
+
+%.o: %.cpp
+	@ echo compiling object file $@ ...
+	g++ $(CC_OPTIONS) -c $^
+
+%.cpp: %.h
+	touch $@
+
+clean:
+	@ echo removing object files: $(obj_files) ... && \
+		rm -f $(obj_files) && \
+		echo 'done'
+
+$(prog): libmy.a $(prog).cpp
+	g++ $(CC_OPTIONS) -o $(prog) $(prog).cpp -L. -lgmp -lgmpxx -lmy

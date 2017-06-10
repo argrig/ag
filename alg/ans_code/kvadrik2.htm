@@ -1,0 +1,34 @@
+<FORM action=check.php method=GET>
+<table cols=2 border=0 >
+<tr>
+  <td align=right style="padding:5pt">Тип кривой:</td> 
+  <td style="padding:5pt"><select name=name>
+<option selected value='-1'>выберите тип кривой</option>
+<option value='мнимая пара пересекающихся прямых'>мнимая пара пересекающихся прямых</option>
+<option value='мнимый эллипс'>мнимый эллипс</option>
+<option value='эллипс'>эллипс</option>
+<option value='пара пересекающихся прямых'>пара пересекающихся прямых</option>
+<option value='гиперболa'>гиперболa</option>
+<option value='парабола'>парабола</option>
+<option value='пара совпадающих прямых'>пара совпадающих прямых</option>
+<option value='пара мнимых параллельных прямых'>пара мнимых параллельных прямых</option>
+<option value='пара параллельных прямых'>пара параллельных прямых</option>
+  </select>
+  </td>
+</tr>
+<tr>
+  <td align=right style="padding:5pt"> Канонический вид: </td> 
+  <td style="padding:5pt"><input type=text name=eqn size=25></td>
+</tr>
+
+<tr>
+  <td align=right valign=top style="padding:5pt">Матрица перехода <br>к канон. базису:</td>
+  <td style="padding:5pt"><TEXTAREA NAME=C cols=15 rows=4> </textarea><br></td>
+</tr><tr>
+
+  <td align=right valign=top style="padding:5pt">Вектор сдвига</td>
+  <td style="padding:5pt"><input type=text NAME=d size=15> </td>
+</tr>
+</table>
+<P><input type=submit value=Готово>
+</FORM> 

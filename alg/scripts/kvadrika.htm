@@ -1,0 +1,42 @@
+<FORM action=check.php method=GET>
+<table cols=2 border=0 >
+<tr>
+  <td align=right style="padding:5pt">Тип поверхности:</td> 
+  <td style="padding:5pt"><select name=name>
+  <option name='name' value=1 selected>выберите из списка ...</option>
+  <option value='мнимый конус'>мнимый конус</option>
+  <option value='мнимый эллипсоид'>мнимый эллипсоид</option>
+  <option value='эллипсоид'>эллипсоид</option>
+  <option value='конус'>конус</option>
+  <option value='двуполостный гиперболоид'>двуполостный гиперболоид</option>
+  <option value='однополостный гиперболоид'>однополостный гиперболоид</option>
+  <option value='эллиптический параболоид'>эллиптический параболоид</option>
+  <option value='гиперболический параболоид'>гиперболический параболоид</option>
+  <option value='пара мнимых пересекающихся плоскостей'>пара мнимых пересекающихся плоскостей</option>
+  <option value='мнимый эллиптический цилиндр'>мнимый эллиптический цилиндр</option>
+  <option value='эллиптический цилиндр'>эллиптический цилиндр</option>
+  <option value='гиперболический цилиндр'>гиперболический цилиндр</option>
+  <option value='пара пересекающихся плоскостей'>пара пересекающихся плоскостей</option>
+  <option value='параболический цилиндр'>параболический цилиндр</option>
+  <option value='пара паралельных плоскостей'>пара паралельных плоскостей</option>
+  <option value='пара мнимых паралельных плоскостей'>пара мнимых паралельных плоскостей</option>
+  <option value='пара совпадающих плоскостей'>пара совпадающих плоскостей</option>
+  </select>
+  </td>
+</tr>
+<tr>
+  <td align=right style="padding:5pt"> Канонический вид: </td> 
+  <td style="padding:5pt"><input type=text name=eqn size=25></td>
+</tr>
+
+<tr>
+  <td align=right valign=top style="padding:5pt">Матрица перехода <br>к канон. базису:</td>
+  <td style="padding:5pt"><TEXTAREA NAME=C cols=25 rows=4> </textarea><br></td>
+</tr><tr>
+
+  <td align=right valign=top style="padding:5pt">Вектор сдвига</td>
+  <td style="padding:5pt"><input type=text NAME=d size=25> </td>
+</tr>
+</table>
+<P><input type=submit value=Готово>
+</FORM> 

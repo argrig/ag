@@ -1,0 +1,6 @@
+#!/usr/bin/perl 
+
+$out = `/sbin/arp -n  | grep -v Flags` ; 
+$out =~ s/(\S+)\s*\w*\s*(\S+)\s*\S*\s*\S*/$1\t$2/g ;
+
+print $out;

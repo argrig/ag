@@ -1,0 +1,2 @@
+insert into prob_types set name='Разложение НОД многочленов', t_p=2 ;
+insert into problems set type_id=33,name="Разложение НОД многочленов",gen_prog="poly_gcd_gen",chk_prog="poly_gcd_chk.pl",ball=9 ;

@@ -1,0 +1,2 @@
+insert into prob_types set name='Аффинные гиперквадрики 2', t_p=2 ;
+insert into problems set type_id=32,name="Кривые 2-го порядка",gen_prog="kvadrik2_gen",chk_prog="kvadrik2_chk.pl",ball=9 ;

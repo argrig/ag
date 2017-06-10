@@ -1,0 +1,32 @@
+<FORM action=check.php method=post> 
+<table cols=2 border=0>
+<tr>
+<td align=right>Декремент <i>x</i>:</td>	<td><input type=text name=dcr></td>
+</tr><tr>
+<td align=right><i>a<sup style="font-size:8pt">-1</sup></i>:</td> 
+<td><input type=text name=a_rvs></td>
+</tr><tr>
+<td align=right><i>x</i>:</td>	<td><input type=text name=x></td>
+</tr><tr>
+<td align=right>Разложение в произведение циклов
+<br> для <i>x</i> ( н-р: [456][1278][3][9] ): </td>	<td><input type=text name=circ></td>
+</tr><tr>
+<td align=right>Разложение в произведение транспозиций
+<br>для <i>x</i> ( н-р: (12)(35)(15)(28) ): </td>	<td><input type=text name=trn></td>
+</tr>
+<tr>
+<td> </td>
+<td>
+<select name=odd>
+    <option value=0> Четность перестановки x
+    <option value=1> Четная
+    <option value=2> Нечетная
+</select>
+</td>
+</tr>
+<tr>
+<td align=right>Число инверсий <i>x</i>:</td>	<td><input type=text name=inv></td>
+</tr>
+</table>
+<P><input type=submit value=готово>
+</FORM> 

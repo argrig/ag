@@ -1,0 +1,27 @@
+<FORM action=check.php method=post> 
+
+<P> Совместность:
+<select name=joint>
+  <option value=0> Тип системы
+  <option value=1> Совместная, определенная
+  <option value=2> Совместная, неопределенная
+  <option value=3> Несовместная
+</select>
+
+<P> Значение дефекта системы:
+<input type=text name=df> 
+
+<P> Номера свободных неизвестных:
+<input type=text name=cols> 
+
+<P> Ступенчатый вид матрицы: <br>
+<TEXTAREA NAME=step cols=30 rows=7> </textarea><br>
+
+<P> Фундаментальная система решений однородной системы: <br>
+<TEXTAREA NAME=ker cols=30 rows=7> </textarea><br>
+
+<P> Произвольное решение неоднородной системы: <br>
+<INPUT type=text NAME=x> <br>
+
+<input type=submit value=готово>
+</FORM>

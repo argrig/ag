@@ -1,0 +1,33 @@
+<FORM action=check.php method=GET>
+<table cols=2 border=0>
+<tr>
+  <td align=right valign=top>Матрица исходной формы:</td>
+  <td><TEXTAREA NAME=Q1 cols=15 rows=4> </textarea><br></td>
+</tr><tr>
+
+  <td align=right valign=top>Матрица перехода <br>к каноническому базису:</td>
+  <td><TEXTAREA NAME=C cols=15 rows=4> </textarea><br></td>
+</tr><tr>
+
+  <td align=right valign=top>Матрица формы <br>в каноническом виде:</td>
+  <td><TEXTAREA NAME=Q_cn cols=15 rows=4> </textarea><br></td>
+</tr><tr>
+
+  <td align=right>Ранг формы <i>r</i>:</td> 
+  <td><input type=text name=rk size=15></td>
+</tr><tr>
+
+  <td align=right>Положительный <br> индекс инерции <i>r<sub>+</sub></i>:</td> 
+  <td><input type=text name=r_plus size=15></td>
+</tr><tr>
+
+  <td align=right>Отрицательный <br> индекс инерции <i>r<sub>-</sub></i>:</td> 
+  <td><input type=text name=r_minus size=15></td>
+</tr><tr>
+
+<td><input type=radio name=degen value=-1>Форма невырождена<br>
+<input type=radio name=degen value=1>Форма вырождена</td>
+</tr><tr>
+</table>
+<P><input type=submit value=готово>
+</FORM> 

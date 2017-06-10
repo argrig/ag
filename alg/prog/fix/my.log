@@ -1,0 +1,33 @@
+This is e-TeX, Version 3.14159-2.1 (Web2C 7.4.5) (format=latex 2004.1.14)  7 OCT 2005 10:17
+entering extended mode
+**my
+(./my
+LaTeX2e <2001/06/01>
+Babel <v3.7h> and hyphenation patterns for american, french, german, ngerman, r
+ussian, nohyphenation, loaded.
+
+! LaTeX Error: Missing \begin{document}.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.1 $
+     $
+? 
+! Interruption.
+\GenericError  ...                                
+                                                  \endgroup 
+l.1 $
+     $
+? x
+ 
+Here is how much of TeX's memory you used:
+ 4 strings out of 95699
+ 14 string characters out of 1193679
+ 46863 words of memory out of 1000001
+ 3104 multiletter control sequences out of 10000+50000
+ 3640 words of font info for 14 fonts, out of 500000 for 1000
+ 24 hyphenation exceptions out of 1000
+ 5i,0n,4p,9b,14s stack positions out of 1500i,500n,5000p,200000b,5000s
+No pages of output.

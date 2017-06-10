@@ -1,0 +1,8 @@
+#!/usr/bin/perl
+
+$para = "$ARGV[0] prog=$ARGV[0]" ;
+$para.= " CC_OPTIONS=\"-O3 -pipe\"" if $ARGV[1]  =~ /rele/ ;
+$para.= " CC_OPTIONS=\"-O0 -g -pipe\"" if $ARGV[1]=~ /debu/ ; 
+
+print "/usr/bin/make $para\n" ;
+`/usr/bin/make $para`
