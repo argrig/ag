@@ -4,12 +4,16 @@
     <title>
       3D!Book
     </title>
+    <meta charset="UTF-8">
     <script src="/js/jquery-3.2.1.min.js"></script>
     <script src="/js/bootstrap.min.js"></script>
     <script src="/js/my.js"></script>
     <link rel="stylesheet" type="text/css" href="/css/bootstrap.min.css">
     <link rel="stylesheet" type="text/css" href="/css/my.css">
     
+    <link rel="stylesheet" type="text/css" href="/css/vis.css">
+    <script src="/js/vis.js"></script>
+    <script src="/js/myvis.js"></script>
   </head>
   <body>
     <header>
@@ -58,9 +62,17 @@
             </li>
           </ul>
           <ul class="nav navbar-nav navbar-right">
+            <li class="navbar-text" id="userName">
+              <?php if(isset($_SESSION['uid'])) {?>
+
+              <?php echo $_SESSION['name'],' ',$_SESSION['surname']?>
+
+              <?php }?>
+
+            </li>
             <li>
               <a href="#schBox" data-toggle="collapse" title="Поиск">
-                <span class="glyphicon glyphicon-search" onclick="javascript:navFormToggle(this,&#039;search&#039;)"></span>
+                <span id="schButton" class="glyphicon glyphicon-search"></span>
               </a>
             </li>
             <li>
@@ -88,12 +100,12 @@
               <?php if(!isset($_SESSION['uid'])) {?>
 
               <a href="#loginBox" data-toggle="collapse" title="Вход">
-                <span class="glyphicon glyphicon-log-in" onclick="navFormToggle(this,&#039;log-in&#039;)"></span>
+                <span class="glyphicon glyphicon-log-in"></span>
               </a>
               <?php } else{?>
 
               <a href="#logoutBox" data-toggle="collapse" title="Выход">
-                <span class="glyphicon glyphicon-log-out" onclick="navFormToggle(this,&#039;log-out&#039;)"></span>
+                <span class="glyphicon glyphicon-log-out"></span>
               </a>
               <?php }?>
 
@@ -119,24 +131,65 @@
           </ul>
         </div>
       </nav>
+      
+      <div class="modal fade" id="modalDialog">
+        <div class="modal-dialog">
+          <div class="modal-content">
+            <div class="modal-header">
+              <button class="close" data-dismiss="modal">
+                <span class="glyphicon glyphicon-remove"></span>
+              </button>
+              <h4 class="modal-title" id="modalTitle">
+                <b>
+                  <?php echo (isset($modalTitle)) ? $modalTitle : 'Информация';?>
+
+                </b>
+              </h4>
+            </div>
+            <form id="modalForm">
+              <div class="modal-body" id="modalBody">
+                <?php echo (isset($modalBody)) ? $modalBody : 'Нет информации' ;?>
+
+              </div>
+              <div class="modal-footer" id="modalFooter">
+                <button class="btn btn-default" data-dismiss="modal">
+                  Закрыть
+                  <span class="glyphicon glyphicon-remove"></span>
+                </button>
+                <?php if(!isset($type)){$type='info';};
+                switch($type){
+                case 'send': ?>
+                <button class="btn btn-primary" type="submit">
+                  Отправить
+                  <span class="glyphicon glyphicon-cloud-upload"></span>
+                </button>
+                <?php break;
+                case 'info':
+                break;} ?>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
     </header>
-    
     
     
     <div class="container-fluid">
       
-      <form id="regForm">
-        <div class="modal fade" id="regBox">
-          <div class="modal-dialog">
-            <div class="modal-content">
-              <div class="modal-header">
-                <button class="close" data-dismiss="modal">
-                  <span class="glyphicon glyphicon-remove"></span>
-                </button>
-                <h4 class="modal-title">
+      <div class="modal fade" id="regBox">
+        <div class="modal-dialog">
+          <div class="modal-content">
+            <div class="modal-header">
+              <button class="close" data-dismiss="modal">
+                <span class="glyphicon glyphicon-remove"></span>
+              </button>
+              <h4 class="modal-title">
+                <b>
                   Регистрация
-                </h4>
-              </div>
+                </b>
+              </h4>
+            </div>
+            <form id="regForm">
               <div class="modal-body" id="regBody">
                 <div class="form-group row">
                   <div class="col-sm-6">
@@ -174,47 +227,94 @@
                   <span class="glyphicon glyphicon-cloud-upload"></span>
                 </button>
               </div>
-            </div>
+            </form>
           </div>
         </div>
-      </form>
-      <div class="col-md-6">
-        <div class="jumbotron">
-          <h2>
-            Добро пожаловать на портал &laquo;<?php echo SITE_NAME ?>&raquo; !
-          </h2>
-          <p>
+      </div>
+      <div class="col-md-3">
+        <div class="panel panel-default">
+          <div class="panel-heading">
+            <b>
+              Добро пожаловать на AG+ !
+            </b>
+          </div>
+          <div class="panel-body">
              Здесь изучают общую и линейную алгебру и аналитическую геометрию
             в пределах стандартных университетских курсов для математических специальностей.
             Для представления материала используется предложенная нами технология
-            <b> 3D!Book</b>.
-          </p>
+            <b>
+              3D!Book
+            </b>
+          </div>
         </div>
+        <button class="btn" type="button" data-toggle="modal" data-target="#modalDialog">
+          Тест модалки
+        </button>
       </div>
       <div class="col-md-6">
-        <div class="jumbotron">
-          <h2>
-            Технология 3D!Book
-          </h2>
-          <p>
-            Основные идеи:
+        <div class="container-fluid" id="myGraph" style="height:70vh"></div>
+      </div>
+      <div class="col-md-3">
+        <div class="panel panel-default">
+          <div class="panel-heading">
+            <b>
+              Технология 3D!Book
+            </b>
+          </div>
+          <div class="panel-body">
             <ul>
               <li>
-                теоретический материал представлен <b>не</b> в виде плоского изложения в стандартном книжном формате,
-                а в виде логического дерева понятий, определений и теорем
+                представление теоретического материала в виде логического дерева определений, теорем, задач и коментариев
               </li>
               <li>
-                каждый может сам сделать для себя нужную выборку и получить фрагмент в книжном формате или же
-                пользоваться информацией в представленном виде
-              </li>
-              <li>
-                в эту же структуру дерева включены и задачи, причем как теоретического так и практического характера
+                возможность выборки элементов логического дерева для получения книжного представления
               </li>
             </ul>
-          </p>
+          </div>
         </div>
       </div>
     </div>
+    
+    <div class="modal fade" id="modalDialog">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <button class="close" data-dismiss="modal">
+              <span class="glyphicon glyphicon-remove"></span>
+            </button>
+            <h4 class="modal-title" id="modalTitle">
+              <b>
+                <?php echo (isset($modalTitle)) ? $modalTitle : 'Информация';?>
+
+              </b>
+            </h4>
+          </div>
+          <form id="modalForm">
+            <div class="modal-body" id="modalBody">
+              <?php echo (isset($modalBody)) ? $modalBody : 'Нет информации' ;?>
+
+            </div>
+            <div class="modal-footer" id="modalFooter">
+              <button class="btn btn-default" data-dismiss="modal">
+                Закрыть
+                <span class="glyphicon glyphicon-remove"></span>
+              </button>
+              <?php if(!isset($type)){$type='info';};
+              switch($type){
+              case 'send': ?>
+              <button class="btn btn-primary" type="submit">
+                Отправить
+                <span class="glyphicon glyphicon-cloud-upload"></span>
+              </button>
+              <?php break;
+              case 'info':
+              break;} ?>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+    
     <hr>
     <footer>
       <div class="container-fluid">

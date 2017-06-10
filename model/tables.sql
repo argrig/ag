@@ -135,4 +135,4 @@ CREATE TABLE IF NOT EXISTS test (
   PRIMARY KEY(id)
 ) ENGINE=INNODB ;
 
-# OPTIMIZE TABLE perms, actions, roles, users, chunks, chunkTypes, rel, relTypes
+# OPTIMIZE TABLE perms, actions, roles, users, chunks, chunkTypes, rels, relTypes

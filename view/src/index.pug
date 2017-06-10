@@ -1,25 +1,30 @@
 extends layout1.pug
-
+block ownhead
+  link(rel='stylesheet' type='text/css' href='/css/vis.css')
+  script(src='/js/vis.js')
+  script(src='/js/myvis.js')
 block menu
   include menu.pug
 block content
   .container-fluid
     include regForm.pug
-    .col-md-6
-      .jumbotron
-        h2 Добро пожаловать на портал &laquo;<?php echo SITE_NAME ?>&raquo; !
-        p  Здесь изучают общую и линейную алгебру и аналитическую геометрию
+    .col-md-3
+      .panel.panel-default
+        .panel-heading
+          b Добро пожаловать на AG+ !
+        .panel-body  Здесь изучают общую и линейную алгебру и аналитическую геометрию
           | в пределах стандартных университетских курсов для математических специальностей.
           | Для представления материала используется предложенная нами технология
-          | <b> 3D!Book</b>.
+          b 3D!Book
+      button.btn(type='button' data-toggle='modal' data-target='#modalDialog') Тест модалки
     .col-md-6
-      .jumbotron
-        h2 Технология 3D!Book
-        p Основные идеи:
+      .container-fluid#myGraph(style='height:70vh')
+    .col-md-3
+      .panel.panel-default
+        .panel-heading
+          b Технология 3D!Book
+        .panel-body
           ul  
-            li теоретический материал представлен <b>не</b> в виде плоского изложения в стандартном книжном формате,
-              | а в виде логического дерева понятий, определений и теорем
-            li каждый может сам сделать для себя нужную выборку и получить фрагмент в книжном формате или же
-              | пользоваться информацией в представленном виде
-            li в эту же структуру дерева включены и задачи, причем как теоретического так и практического характера
-
+            li представление теоретического материала в виде логического дерева определений, теорем, задач и коментариев
+            li возможность выборки элементов логического дерева для получения книжного представления
+  include modalDialog.pug

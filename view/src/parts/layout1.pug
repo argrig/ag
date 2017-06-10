@@ -2,6 +2,7 @@ doctype html
 html(lang=ru)
   head
     title 3D!Book
+    meta(charset="UTF-8")
     script(src='/js/jquery-3.2.1.min.js')
     script(src='/js/bootstrap.min.js')
     script(src='/js/my.js')
@@ -12,10 +13,11 @@ html(lang=ru)
     header
       block menu
     block left
-    block right
     block content
+    block right
     hr
     footer
       .container-fluid
         | &copy; 2004 &ndash; <?php echo date("Y"),"&nbsp;&nbsp;",AUTHOR,". Все права защищены." ?>
+
       

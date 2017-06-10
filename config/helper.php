@@ -13,5 +13,5 @@ function assoc2array($arr,$fields) {
   return $tmp ;
 }
 function sendJSON($arr) {
-  echo json_encode($arr, JSON_UNESCAPED_UNICODE); 
+  echo json_encode($arr, JSON_UNESCAPED_UNICODE | JSON_UNESCAPED_SLASHES); 
 }

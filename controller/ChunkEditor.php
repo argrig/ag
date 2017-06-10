@@ -1,6 +1,7 @@
 <?php
 class ChunkEditor {
   function handle($rt_parts) {
+    print_r($_SESSION) ;
     /*
     $db = (new MongoDB\Client)->book;
     $opt = array("_id"=>1,"title"=>1) ;

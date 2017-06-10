@@ -24,9 +24,13 @@ nav.navbar.navbar-default
         a(href="/stats" title="Статистика")
           span.glyphicon.glyphicon-stats
     ul.nav.navbar-nav.navbar-right
+      li.navbar-text#userName
+        -if(isset($_SESSION['uid'])) {
+        -echo $_SESSION['name'],' ',$_SESSION['surname']
+        -}
       li
         a(href="#schBox" data-toggle="collapse" title="Поиск")
-          span.glyphicon.glyphicon-search(onclick="javascript:navFormToggle(this,'search')")
+          span#schButton.glyphicon.glyphicon-search
       li
         .collapse#schBox
           form.navbar-form(role="search" action="" method="post")
@@ -41,10 +45,10 @@ nav.navbar.navbar-default
       li
         -if(!isset($_SESSION['uid'])) {
         a(href="#loginBox" data-toggle="collapse" title="Вход")
-          span.glyphicon.glyphicon-log-in(onclick="navFormToggle(this,'log-in')")
+          span.glyphicon.glyphicon-log-in
         -} else{
         a(href="#logoutBox" data-toggle="collapse" title="Выход")
-          span.glyphicon.glyphicon-log-out(onclick="navFormToggle(this,'log-out')")
+          span.glyphicon.glyphicon-log-out
         -}
       li
         .collapse#loginBox
@@ -56,3 +60,4 @@ nav.navbar.navbar-default
                 .input-group-btn
                   button.btn.btn-default(type="submit")
                     span.glyphicon.glyphicon-log-in
+include modalDialog.pug
